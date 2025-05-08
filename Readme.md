@@ -32,13 +32,11 @@ A collection of Kubernetes manifests to demonstrate and test common features on 
 - **daemonset-test**  
     Deploy a complete monitoring stack on Minikube:  
       - A Flask app exposing Prometheus metrics  
-      - StatsD exporter  
       - Prometheus server (with ConfigMap)  
       - Grafana dashboard  
       - Node Exporter as a DaemonSet  
     Files:  
     - `metric-app.yaml` (Flask metrics app Deployment & Service)  
-    - `metrics-app.yaml` (StatsD exporter Deployment & Service)  
     - `prometheus-config.yaml` (ConfigMap)  
     - `prometheus-deploy.yaml` (Prometheus Deployment)  
     - `prometheus-svc.yaml` (Prometheus Service)  
