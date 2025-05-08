@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flask-metrics
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: flask-metrics
+  template:
+    metadata:
+      labels:
+        app: flask-metrics
+    spec:
+      containers:
+        - name: flask-app
+          image: abhishek626/flask-metrics-app:latest 
+          ports:
+            - containerPort: 5000  # Web app port
+            - containerPort: 8000  # Metrics port
+      imagePullSecrets:
+        - name: regcred      
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: flask-metrics
+spec:
+  selector:
+    app: flask-metrics
+  ports:
+    - name: web
+      port: 5000
+      targetPort: 5000
+    - name: metrics
+      port: 8000
+      targetPort: 8000
+  type: NodePort  # Change ClusterIP to NodePort
+
