@@ -4,19 +4,24 @@ A collection of Kubernetes manifests to demonstrate and test common features on 
 
 ## Table of Contents
 - [Overview](#minikube-tests)
+- [Prerequisites](#prerequisites)
 - [Examples](#examples)
   - [StatefulSet Test](#statefulset-test)
   - [PV Test](#pv-test)
   - [Inspect Pod](#inspect-pod)
   - [PVC Test](#pvc-test)
   - [DaemonSet Test](#daemonset-test)
-- [Prerequisites](#prerequisites)
 - [Usage](#usage)
 - [Features Demonstrated](#features-demonstrated)
 
+## Prerequisites
+
+- [Minikube](https://minikube.sigs.k8s.io/docs/) installed and running  
+- `kubectl` configured to talk to your Minikube cluster
+
 ## Examples
 
-- **statefulset-test**  
+- ### statefulset-test
     Examples of StatefulSets with persistent storage:
     - **MySQL**:
         - `mysql-statefulset/mysql-statefulset.yaml` (StatefulSet)
@@ -30,26 +35,26 @@ A collection of Kubernetes manifests to demonstrate and test common features on 
         - `nginx-statefulset/nginx-statefulset.yaml` (StatefulSet)
         - `nginx-statefulset/nginx-headless.yaml` (Headless Service)
 
-- **pv-test**  
+- ### pv-test 
     Show how to create a hostPath PersistentVolume and consume it via a PVC in an NGINX Pod.  
     Files:  
     - `nginx-pv.yaml` (PV)  
     - `nginx-pvc.yaml` (PVC)  
     - `nginx-pod.yaml`
 
-- **inspect-pod**  
+- ### inspect-pod
     Deploy a standalone NGINX Pod and expose it with a NodePort Service for quick inspection.  
     Files:  
     - `nginx-deploy.yaml`  
     - `nginx-svc.yaml`
 
-- **pvc-test**  
+- ### pvc-test 
     Test writing data into a PVC from a BusyBox Pod.  
     Files:  
     - `pvc.yaml` (PVC)  
     - `pvc-deploy.yaml` (Pod that writes to the PVC)
 
-- **daemonset-test**  
+- ### daemonset-test
     Deploy a complete monitoring stack on Minikube:  
       - A Flask app exposing Prometheus metrics  
       - Prometheus server (with ConfigMap)  
@@ -65,10 +70,6 @@ A collection of Kubernetes manifests to demonstrate and test common features on 
     - `node-exporter-service.yaml` (Node Exporter Service)  
     - Custom Flask app with Prometheus metrics in `app/` directory
 
-## Prerequisites
-
-- [Minikube](https://minikube.sigs.k8s.io/docs/) installed and running  
-- `kubectl` configured to talk to your Minikube cluster
 
 ## Usage
 
