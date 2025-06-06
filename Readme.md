@@ -3,12 +3,18 @@
 A collection of Kubernetes manifests to demonstrate and test common features on Minikube:
 
 - **statefulset-test**  
-    Deploy a PostgreSQL instance backed by a PersistentVolume and Stateful-like behavior.  
-    Files:  
-    - `postgres-pv.yaml` (PV & PVC)  
-    - `postgres-deploy.yaml` (Deployment + PVC mount)  
-    - `postgres-service.yaml`  
-    - `pg-client-deploy.yaml` (interactive client)
+    Examples of StatefulSets with persistent storage:
+    - **MySQL**:
+        - `mysql-statefulset/mysql-statefulset.yaml` (StatefulSet)
+        - `mysql-statefulset/mysql-headless.yaml` (Headless Service)
+        - `mysql-statefulset/php-app-deployment.yaml` (PHP-Nginx app to connect to MySQL)
+        - `mysql-statefulset/php-app-svc.yaml` (Service to expose PHP app)
+    - **Redis**:
+        - `redis-statefulset/redis-statefulset.yaml` (StatefulSet)
+        - `redis-statefulset/redis-headless.yaml` (Headless Service)
+    - **NGINX**:
+        - `nginx-statefulset/nginx-statefulset.yaml` (StatefulSet)
+        - `nginx-statefulset/nginx-headless.yaml` (Headless Service)
 
 - **pv-test**  
     Show how to create a hostPath PersistentVolume and consume it via a PVC in an NGINX Pod.  
@@ -43,6 +49,7 @@ A collection of Kubernetes manifests to demonstrate and test common features on 
     - `grafana.yaml` (Grafana Deployment & Service)  
     - `node-exporter-daemonset.yaml` (Node Exporter DaemonSet)  
     - `node-exporter-service.yaml` (Node Exporter Service)  
+    - Custom Flask app with Prometheus metrics in `app/` directory
 
 ## Prerequisites
 
@@ -67,5 +74,14 @@ A collection of Kubernetes manifests to demonstrate and test common features on 
     ```bash
     kubectl delete -f .
     ```
+
+## Features Demonstrated
+
+- **StatefulSets**: Deploying stateful applications with stable network identities and persistent storage
+- **PersistentVolumes**: Managing storage in Kubernetes with different provisioners
+- **Services**: Exposing applications using ClusterIP and NodePort service types
+- **DaemonSets**: Running pods on every node in the cluster
+- **ConfigMaps**: Providing configuration to applications
+- **Multi-container Pods**: Running multiple containers in a single pod (e.g., PHP-NGINX)
 
 Feel free to explore each directory and experiment with the manifests to learn how Kubernetes storage, services, and monitoring work on Minikube.
