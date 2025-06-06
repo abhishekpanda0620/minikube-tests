@@ -1,8 +1,10 @@
 # Minikube Tests
 
+A collection of Kubernetes manifests to demonstrate and test common features on Minikube:
+
 ## Table of Contents
 - [Overview](#minikube-tests)
-- [Examples](#a-collection-of-kubernetes-manifests-to-demonstrate-and-test-common-features-on-minikube)
+- [Examples](#examples)
   - [StatefulSet Test](#statefulset-test)
   - [PV Test](#pv-test)
   - [Inspect Pod](#inspect-pod)
@@ -12,7 +14,7 @@
 - [Usage](#usage)
 - [Features Demonstrated](#features-demonstrated)
 
-A collection of Kubernetes manifests to demonstrate and test common features on Minikube:
+## Examples
 
 - **statefulset-test**  
     Examples of StatefulSets with persistent storage:
