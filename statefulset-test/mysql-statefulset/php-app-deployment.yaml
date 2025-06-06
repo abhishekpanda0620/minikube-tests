@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: php-nginx-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: php-nginx-app
+  template:
+    metadata:
+      labels:
+        app: php-nginx-app
+    spec:
+      volumes:
+        - name: code
+          hostPath:
+            path: /mnt/php-app
+            type: Directory
+      containers:
+        - name: nginx
+          image: nginx:1.25
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - name: code
+              mountPath: /var/www/html
+            - name: code
+              mountPath: /etc/nginx/conf.d/default.conf
+              subPath: nginx/default.conf
+        - name: php-fpm
+          image: abhishek626/php-mysqli:8.2-fpm
+          volumeMounts:
+            - name: code
+              mountPath: /var/www/html
