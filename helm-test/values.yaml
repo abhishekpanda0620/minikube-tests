@@ -1,0 +1,7 @@
+replicaCount: 1
+
+htmlContent: "<html><body><h1>Welcome to ENV environment</h1></body></html>"
+
+service:
+  type: ClusterIP
+  port: 80
