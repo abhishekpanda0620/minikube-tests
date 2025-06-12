@@ -5,3 +5,7 @@ htmlContent: "<html><body><h1>Welcome to ENV environment</h1></body></html>"
 service:
   type: ClusterIP
   port: 80
+
+ingress:
+  enabled: true
+  hostname: "ENV.local"  
