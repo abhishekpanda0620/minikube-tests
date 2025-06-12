@@ -91,23 +91,17 @@ Same for `prod.local`
 
 
 ## 🖥️ Local DNS Setup
-
-Add this to `/etc/hosts` (in WSL or host system):
-
-```bash
-127.0.0.1   dev.local
-127.0.0.1 prod.local
-```
-### If using minikube
+Find minikube ip address
 ```bash
 minikube ip
 ```
+if its `192.168.49.2`
 
-Add this to `/etc/hosts` (in WSL or host system):
+Add this to `/etc/hosts` (in WSL/linux or host system,it requires `sudo` access):
 
 ```bash
-IP of minikube   dev.local
-IP of minikube prod.local
+192.168.49.2 dev.local
+192.168.49.2 prod.local
 ```
 
 
