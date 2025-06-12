@@ -1,0 +1,14 @@
+namePrefix: prod-
+resources:
+  - ../../base
+
+configMapGenerator:
+  - name: nginx-config
+    literals:
+      - index.html=<html><body><h1>Welcome to PRODs environment</h1></body></html>
+
+patches:
+  - path: replica-patch.yaml
+    target:
+      kind: Deployment
+      name: nginx
