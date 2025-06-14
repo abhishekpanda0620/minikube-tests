@@ -21,6 +21,31 @@ A collection of Kubernetes manifests to demonstrate and test common features on 
 
 ## Examples
 
+- ### helm-test
+    Helm chart examples for different environments:
+    - **Chart Structure**:
+        - `Chart.yaml` - Main chart metadata
+        - `values.yaml` - Base configuration
+        - `dev-values.yaml`/`prod-values.yaml` - Environment-specific overrides
+    - **Templates**:
+        - Deployment, Service, Ingress, and ConfigMap templates in `templates/` directory
+
+- ### kustomize-test
+    Kustomize overlays for environment-specific configurations:
+    - **Base Configuration**:
+        - `base/deployment.yaml` - Common deployment
+        - `base/service.yaml` - Common service
+        - `base/kustomization.yaml` - Base resources
+    - **Overlays**:
+        - `dev/` - Development configuration (3 replicas)
+        - `prod/` - Production configuration (5 replicas)
+
+- ### observability-test
+    Prometheus monitoring stack:
+    - `prometheus/config.yaml` - Prometheus configuration
+    - `prometheus/deployment.yaml` - Prometheus server
+    - `prometheus/service.yaml` - Service exposing Prometheus UI
+
 - ### statefulset-test
     Examples of StatefulSets with persistent storage:
     - **MySQL**:
@@ -92,6 +117,9 @@ A collection of Kubernetes manifests to demonstrate and test common features on 
 
 ## Features Demonstrated
 
+- **Helm Charts**: Packaging and environment-specific configuration management
+- **Kustomize Overlays**: Managing different environments with patching
+- **Prometheus Monitoring**: Setting up metrics collection and monitoring
 - **StatefulSets**: Deploying stateful applications with stable network identities and persistent storage
 - **PersistentVolumes**: Managing storage in Kubernetes with different provisioners
 - **Services**: Exposing applications using ClusterIP and NodePort service types
