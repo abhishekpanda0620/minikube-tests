@@ -1,0 +1,11 @@
+groups:
+  - name: node-exporter-status
+    rules:
+      - alert: NodeExporterDown
+        expr: up{job="node-exporter"} == 0
+        for: 1s
+        labels:
+          severity: warning
+        annotations:
+          summary: "Node Exporter is down"
+          description: "Node Exporter target has been down for more than 1 minute."
