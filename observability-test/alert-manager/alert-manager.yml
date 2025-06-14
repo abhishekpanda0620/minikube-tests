@@ -8,7 +8,7 @@ receivers:
   - name: 'slack-notifications'
     slack_configs:
       - api_url: 'paste webhook-url here'
-        channel: '#all-test'
+        channel: '#your-slack-channel'
         send_resolved: true
         title: '{{ .CommonLabels.alertname }}'
         text: >-
